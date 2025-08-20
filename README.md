@@ -48,15 +48,19 @@ https://yourdomain.com/backup.php
 
 # Default password: enteraja
 
-📦 Deployment Tips
+## 📦 Deployment Tips
 
 Protect with .htpasswd or VPN
 Host inside subfolder (e.g. /admin/backup.php)
 Change filename regularly
 Use HTTPS to protect credentials
 
-🔐 Security
+---
+
+## 🔐 Security
 
 All operations are jailed to BASE_DIR, preventing directory escape.
 Script does not rely on PHP sessions and is compatible with hardened environments.
 See SECURITY.md for responsible disclosure and limitations.
+
+---
