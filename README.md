@@ -1,6 +1,6 @@
 # CSEC Shell 0.5 — Secure PHP File Manager
 
-> Hardened, modular, and sessionless PHP file manager for self-hosted servers you own.
+> A hardened, modular, and sessionless PHP file manager for **self-hosted servers you own**.
 
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -8,32 +8,35 @@
 
 ---
 
-## ⚠️ DISCLAIMER
+## ⚠️ Disclaimer
 
-This tool is for **authorized, legal use only**. Do **not** use this on systems you don't own or control.  
-Misuse of this tool may result in violation of computer crime laws.
+This tool is intended for **authorized, legal use only**.  
+Do **not** use this on systems you do not own or control.
+
+Misuse of this tool may violate computer crime laws in your jurisdiction. The author is **not responsible** for any misuse or damage caused by unauthorized deployment.
 
 ---
 
 ## ✨ Features
 
-- ✅ No PHP sessions — uses HMAC token with optional cookie
-- ✅ Secure base directory jail (path-safe join + symlink escape prevention)
-- ✅ Clean dark UI with mobile-friendly responsive layout
-- ✅ Zip/Unzip to current folder
-- ✅ Chmod (with optional recursive)
-- ✅ Create, Rename, Move, Copy, Edit, Delete files/folders
-- ✅ Bulk select + delete/zip
-- ✅ CSRF protection on all mutations
-- ✅ Optional IP binding
-- ✅ Fully self-contained in 1 file (`backup.php`)
+- ✅ No PHP sessions — uses short-lived HMAC token (optional HttpOnly cookie)
+- ✅ Secure base directory jail (path-safe join + symlink escape protection)
+- ✅ Fully self-contained in a single file (`backup.php`)
+- ✅ Clean dark UI with responsive layout
+- ✅ Upload, Edit, Delete, Rename, Move, Copy, New File, Mkdir
+- ✅ Zip/Unzip support (to current folder)
+- ✅ CHMOD with optional recursion
+- ✅ Bulk select + delete or zip
+- ✅ Built-in CSRF protection
+- ✅ Optional IP binding for token
+- ✅ Works on hardened environments
 
 ---
 
 ## 🛠️ Requirements
 
 - PHP 7.2 or higher
-- `ZipArchive` PHP extension enabled
+- `ZipArchive` PHP extension must be enabled
 
 ---
 
@@ -47,20 +50,3 @@ cp backup.php /var/www/html
 https://yourdomain.com/backup.php
 
 # Default password: enteraja
-
-## 📦 Deployment Tips
-
-Protect with .htpasswd or VPN
-Host inside subfolder (e.g. /admin/backup.php)
-Change filename regularly
-Use HTTPS to protect credentials
-
----
-
-## 🔐 Security
-
-All operations are jailed to BASE_DIR, preventing directory escape.
-Script does not rely on PHP sessions and is compatible with hardened environments.
-See SECURITY.md for responsible disclosure and limitations.
-
----
